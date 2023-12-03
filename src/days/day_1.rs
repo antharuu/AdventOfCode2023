@@ -1,10 +1,11 @@
+#![allow(dead_code)]
+
 use std::collections::HashMap;
 
 const INPUT_PATH: &str = "src/inputs/day_1.txt";
 // const INPUT_PATH: &str = "src/inputs/day_1_test.txt";
 // const INPUT_PATH: &str = "src/inputs/day_1_test_2.txt";
 
-#[allow(dead_code)]
 const LETTERS_AS_DIGITS: [(&str, u32); 9] = [
     ("one", 1),
     ("two", 2),
@@ -17,7 +18,6 @@ const LETTERS_AS_DIGITS: [(&str, u32); 9] = [
     ("nine", 9),
 ];
 
-#[allow(dead_code)]
 pub fn day_1_part_1() {
     let input = std::fs::read_to_string(INPUT_PATH).unwrap();
     let mut digits: Vec<u32> = Vec::new();
@@ -34,7 +34,6 @@ pub fn day_1_part_1() {
     println!("Sum: {}", sum);
 }
 
-#[allow(dead_code)]
 pub fn day_1_part_2() {
     let input = std::fs::read_to_string(INPUT_PATH).unwrap();
     let mut digits: Vec<u32> = Vec::new();
@@ -64,7 +63,6 @@ pub fn day_1_part_2() {
     println!("Sum: {}", sum);
 }
 
-#[allow(dead_code)]
 fn get_digit(input: &str, pattern: &str) -> u32 {
     let re = regex::Regex::new(pattern).unwrap();
     let caps = re.captures(input).unwrap();
@@ -72,17 +70,14 @@ fn get_digit(input: &str, pattern: &str) -> u32 {
     digit
 }
 
-#[allow(dead_code)]
 fn get_first_digit(input: &str) -> u32 {
     get_digit(input, r"(?P<digit>\d).*")
 }
 
-#[allow(dead_code)]
 fn get_last_digit(input: &str) -> u32 {
     get_digit(input, r".*(?P<digit>\d)")
 }
 
-#[allow(dead_code)]
 fn get_digits_in_number(input: &str) -> u32 {
     let first_digit = get_first_digit(input);
     let last_digit = get_last_digit(input);
@@ -91,7 +86,6 @@ fn get_digits_in_number(input: &str) -> u32 {
     digits_in_number
 }
 
-#[allow(dead_code)]
 fn get_letters_as_digits(input: &str) -> Vec<u32> {
     let letters_as_digits: HashMap<&str, u32> = LETTERS_AS_DIGITS.iter().cloned().collect();
     let mut digits: Vec<u32> = Vec::new();
@@ -116,7 +110,6 @@ fn get_letters_as_digits(input: &str) -> Vec<u32> {
     digits
 }
 
-#[allow(dead_code)]
 fn split_into_digits_and_letters(input: &str) -> Vec<String> {
     let mut result = Vec::new();
     let mut index = 0;

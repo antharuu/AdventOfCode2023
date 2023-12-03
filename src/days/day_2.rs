@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 const INPUT_PATH: &str = "src/inputs/day_2.txt";
 // const INPUT_PATH: &str = "src/inputs/day_2_test.txt";
 
