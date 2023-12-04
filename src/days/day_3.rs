@@ -103,7 +103,7 @@ impl Map {
             if let Some(tile) = self.get_tile_at_position(adjacent_position) {
                 match tile {
                     Tile::NumberTile(number) => {
-                        let full_number = get_full_number(number.position.clone(), self.clone());
+                        let full_number = get_full_number(number.position.clone(), self);
                         if !adjacent_numbers.contains(&full_number) {
                             adjacent_numbers.push(full_number);
                         }
@@ -310,7 +310,7 @@ pub fn day_3_part_2() {
     println!("Sum of ratios: {}", sum_of_ratios);
 }
 
-fn end_group(mut num_group: &mut Vec<i32>) {
+fn end_group(num_group: &mut Vec<i32>) {
     if num_group.len() >= 1 {
         num_group.clear();
     }
